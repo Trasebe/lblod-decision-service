@@ -4,23 +4,11 @@ import CryptoJS from "crypto-js";
 import User from "../models/auth.model";
 
 const RegisterUser = async oit => {
-  // const responseRetrieve = await requestPromise.post(
-  //   "http://authentication/retrieve-encryption-key",
-  //   {
-  //     method: "POST",
-  //     body: { identifier: oit, seed: oit.secret },
-  //     json: true
-  //   }
-  // );
-
-  // console.log("Call 1 happened");
-  // const encryptionKey = JSON.parse(responseRetrieve.encryptionKey);
-
   const {
     encryptedCert,
     encryptedKey,
     encryptionKey
-  } = await requestPromise.post("http://authentication/create-certificate", {
+  } = await requestPromise.post("http://authentication/certificate/create", {
     method: "POST",
     body: {
       enrollmentID: oit.identifier,
@@ -56,7 +44,7 @@ const GetUser = async identifier => User.getByName(identifier);
 
 const GetEncryptionKey = async oit => {
   const responseRetrieve = await requestPromise.post(
-    "http://authentication/retrieve-encryption-key",
+    "http://authentication/certificate/retrieveKey",
     {
       method: "POST",
       body: { identifier: oit, seed: oit.secret },

@@ -3,12 +3,8 @@ import httpStatus from "http-status";
 import logger from "../../config/Log";
 import decisionService from "../../services/decision.service";
 
-let counter = 0;
-
 const publish = async (req, res, next) => {
   try {
-    counter++;
-    console.log("Decison counter", counter);
     logger.info("Publishing resources..");
     const resource = req.body;
     const result = await decisionService.Publish(resource);

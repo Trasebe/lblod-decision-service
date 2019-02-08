@@ -132,15 +132,6 @@ const initFabric = async () => {
     );
   }
 
-  for (let x = 0; x < 200; x++) {
-    register({
-      username: Math.random().toString(),
-      role: "pleb",
-      affiliation: `org1.department1`
-    });
-    console.log(x);
-  }
-
   client.setUserContext(adminUser, true);
 
   // TODO multiple channels
