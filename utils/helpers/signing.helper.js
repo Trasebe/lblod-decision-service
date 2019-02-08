@@ -194,8 +194,6 @@ const invokeOffline = async ({ txId, proposal }, privateKeyPEM, certPEM) => {
       throw new Error("Something went wrong");
     }
 
-    // return response.status;
-
     // let peer = channel.getChannelEventHubsForOrg(network.getOrgMsp()).getPeer();
     const eventHub = channel.newChannelEventHub(targets[0]);
     const unsignedEvent = await eventHub.generateUnsignedRegistration({
